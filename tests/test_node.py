@@ -13,5 +13,9 @@ class TestNode(unittest.TestCase):
         self.assertIsNotNone(Node('data'))
 
 
+    def test_node_equality(self):
+        self.assertEqual(Node('data'), Node('data'))
+        self.assertEqual(Node(1), Node(1))
+
 if __name__ == '__main__':
     unittest.main()
