@@ -48,3 +48,20 @@ class LinkedList:
                     current = current.next_element
         return False
 
+    def delete(self, value):
+        if not self.is_empty():
+            current = self.get_head()
+            previous = None
+            while current is not None:
+                if current.data == value:
+                    if previous is None:
+                        self.head_node = current.next_element
+                    else :
+                        previous.next_element = current.next_element
+                    return True
+                else:
+                    previous = current
+                    current = current.next_element
+        return False
+
+

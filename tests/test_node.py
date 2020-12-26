@@ -13,8 +13,11 @@ class TestNode(unittest.TestCase):
         self.assertIsNotNone(Node('data'))
 
 
-    def test_node_equality(self):
+    def test_node_equality_string(self):
         self.assertEqual(Node('data'), Node('data'))
+
+
+    def test_node_equality_integer(self):
         self.assertEqual(Node(1), Node(1))
 
 if __name__ == '__main__':

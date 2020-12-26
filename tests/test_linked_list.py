@@ -42,5 +42,12 @@ class TestlinkList(unittest.TestCase):
         self.assertFalse(sample_list.search(6))
 
 
+    def test_delete(self):
+        sample_list = LinkedList()
+        sample_list.insert_at_tail(1).insert_at_tail(2).insert_at_tail(3).insert_at_tail(4)
+        sample_list.delete(1)
+        self.assertEqual(sample_list.get_head(), Node(2))
+
+
 if __name__ == '__main__':
     unittest.main()
