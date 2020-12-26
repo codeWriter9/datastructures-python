@@ -49,5 +49,12 @@ class TestlinkList(unittest.TestCase):
         self.assertEqual(sample_list.get_head(), Node(2))
 
 
+    def test_length(self):
+        sample_list = LinkedList()
+        sample_list.insert_at_tail(1).insert_at_tail(2).insert_at_tail(3).insert_at_tail(4)
+        self.assertEqual(sample_list.length(), 4)
+        sample_list.delete(1)
+        self.assertEqual(sample_list.length(), 3)
+
 if __name__ == '__main__':
     unittest.main()

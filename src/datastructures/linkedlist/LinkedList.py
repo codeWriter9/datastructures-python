@@ -64,4 +64,13 @@ class LinkedList:
                     current = current.next_element
         return False
 
-
+    def length(self):
+        if not self.is_empty():
+            len = 0
+            current = self.get_head()
+            while current is not None:
+                current = current.next_element
+                len = len + 1
+            return len
+        else :
+            return 0

@@ -49,9 +49,22 @@ def delete(lst, value):
                 current = current.next_element
     return False
 
+def length(lst):
+    if not lst.is_empty():
+        len = 0
+        current = lst.get_head()
+        while current is not None:
+            current = current.next_element
+            len = len + 1
+        return len
+    else :
+        return 0
+
 if __name__ == '__main__':
     lst = LinkedList()
     lst.insert_at_tail(1).insert_at_tail(2).insert_at_tail(3).insert_at_tail(4)
     lst.print_list()
+    print(length(lst))
     lst.delete(2)
     lst.print_list()
+    print(length(lst))
