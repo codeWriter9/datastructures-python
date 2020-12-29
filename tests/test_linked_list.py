@@ -56,5 +56,28 @@ class TestlinkList(unittest.TestCase):
         sample_list.delete(1)
         self.assertEqual(sample_list.length(), 3)
 
+
+    def test_reverse(self):
+        sample_list = LinkedList()
+        sample_list.insert_at_tail(1).insert_at_tail(2).insert_at_tail(3).insert_at_tail(4)
+        self.assertEqual(sample_list.get_head(), Node(1))
+        sample_list.reverse()
+        self.assertEqual(sample_list.get_head(), Node(4))
+
+
+    def test_loop(self):
+        sample_list = LinkedList()
+        sample_list.insert_at_tail(1).insert_at_tail(2).insert_at_tail(3).insert_at_tail(4)
+        self.assertFalse(sample_list.detect_loop())
+        n1 = Node(1)
+        n2 = Node(2)
+        n3 = Node(3)
+        n1.next_element = n2
+        n2.next_element = n3
+        n3.next_element = n1
+        sample_list.head_node = n1
+        self.assertTrue(sample_list.detect_loop())
+
+
 if __name__ == '__main__':
     unittest.main()

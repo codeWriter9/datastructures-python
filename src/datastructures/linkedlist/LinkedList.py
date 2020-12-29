@@ -74,3 +74,29 @@ class LinkedList:
             return len
         else :
             return 0
+
+    def reverse(self):
+        if self.get_head():
+            head = self.get_head()
+            current = head
+            previous = None
+            next = None
+            while current:
+                next = current.next_element # save the remainder
+                current.next_element = previous  # save the previous as the next node
+                previous = current # current is the new previous
+                current = next # ready pointer to next
+                self.head_node = previous
+        return self
+
+    def detect_loop(self):
+        if self.get_head():
+            slow = self.get_head()
+            fast = None if self.get_head() == None else self.get_head().next_element
+            while slow and fast:
+                if slow.data == fast.data:
+                    return True
+                else:
+                    slow = slow.next_element
+                    fast = None if fast.next_element == None else fast.next_element.next_element
+        return False
