@@ -13,6 +13,18 @@ class TestNode(unittest.TestCase):
         self.assertIsNotNone(Node('data'))
 
 
+    def test_node_next_element(self):
+        n1 = Node('data')
+        self.assertIsNone(n1.next_element)
+
+
+    def test_node_next_element2(self):
+        n1 = Node('data')
+        n2 = Node('more_data')
+        n1.next_element = n2
+        self.assertIsNotNone(n1.next_element)
+
+
     def test_node_equality_string(self):
         self.assertEqual(Node('data'), Node('data'))
 

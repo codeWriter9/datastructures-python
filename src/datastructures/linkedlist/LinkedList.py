@@ -100,3 +100,18 @@ class LinkedList:
                     slow = slow.next_element
                     fast = None if fast.next_element == None else fast.next_element.next_element
         return False
+
+    def find_mid(self):
+        if self.get_head():
+            count = 0
+            stop = 0
+            current = self.get_head()
+            if self.length() % 2 == 0:
+                stop = self.length() / 2 - 1
+            else :
+                stop = int(self.length() / 2)
+            while count != stop:
+                count = count + 1
+                current = current.next_element
+            return current
+        return None

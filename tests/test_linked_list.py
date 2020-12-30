@@ -65,7 +65,7 @@ class TestlinkList(unittest.TestCase):
         self.assertEqual(sample_list.get_head(), Node(4))
 
 
-    def test_loop(self):
+    def test_detect_loop(self):
         sample_list = LinkedList()
         sample_list.insert_at_tail(1).insert_at_tail(2).insert_at_tail(3).insert_at_tail(4)
         self.assertFalse(sample_list.detect_loop())
@@ -77,6 +77,25 @@ class TestlinkList(unittest.TestCase):
         n3.next_element = n1
         sample_list.head_node = n1
         self.assertTrue(sample_list.detect_loop())
+
+
+    def test_mid_point(self):
+        sample_list = LinkedList()
+        self.assertEqual(sample_list.find_mid(), None)
+        sample_list.insert_at_tail(1).insert_at_tail(2).insert_at_tail(3).insert_at_tail(4)
+        self.assertEqual(sample_list.find_mid(), Node(2))
+        sample_list.insert_at_tail(5)
+        self.assertEqual(sample_list.find_mid(), Node(3))
+
+
+    def test_mid_point2(self):
+        sample_list = LinkedList()
+        sample_list.insert_at_tail(1)
+        self.assertEqual(sample_list.find_mid(), Node(1))
+        sample_list.insert_at_tail(2)
+        self.assertEqual(sample_list.find_mid(), Node(1))
+        sample_list.insert_at_tail(3)
+        self.assertEqual(sample_list.find_mid(), Node(2))
 
 
 if __name__ == '__main__':

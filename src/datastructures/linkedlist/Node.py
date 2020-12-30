@@ -15,4 +15,5 @@ class Node:
 
 
     def __hash__(self):
+        """Overrides the default implementation"""
         return hash(self.data)
