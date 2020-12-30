@@ -161,5 +161,53 @@ class TestlinkList(unittest.TestCase):
         self.assertTrue(union_list.search(6))
 
 
+    def test_intersection(self):
+        sample_list = LinkedList()
+        sample_list.insert_at_tail(1).insert_at_tail(2).insert_at_tail(3).insert_at_tail(4)
+        supple_list = LinkedList()
+        supple_list.insert_at_tail(3).insert_at_tail(4).insert_at_tail(5).insert_at_tail(6)
+        intersection = sample_list.intersection(supple_list)
+        self.assertEqual(intersection.length(), 2)
+        self.assertFalse(intersection.search(1))
+        self.assertFalse(intersection.search(2))
+        self.assertTrue(intersection.search(3))
+        self.assertTrue(intersection.search(4))
+
+
+    def test_no_intersection(self):
+        sample_list = LinkedList()
+        sample_list.insert_at_tail(1).insert_at_tail(2).insert_at_tail(3).insert_at_tail(4)
+        supple_list = LinkedList()
+        supple_list.insert_at_tail(5).insert_at_tail(6).insert_at_tail(7).insert_at_tail(8)
+        intersection = sample_list.intersection(supple_list)
+        self.assertEqual(intersection.length(), 0)
+        self.assertFalse(intersection.search(1))
+        self.assertFalse(intersection.search(2))
+        self.assertFalse(intersection.search(3))
+        self.assertFalse(intersection.search(4))
+
+
+    def test_intersection_empty_list(self):
+        sample_list = LinkedList()
+        supple_list = LinkedList()
+        supple_list.insert_at_tail(5).insert_at_tail(6).insert_at_tail(7).insert_at_tail(8)
+        intersection = sample_list.intersection(supple_list)
+        self.assertEqual(intersection.length(), 0)
+        self.assertFalse(intersection.search(5))
+        self.assertFalse(intersection.search(6))
+        self.assertFalse(intersection.search(7))
+        self.assertFalse(intersection.search(8))
+        sample_list = LinkedList()
+        sample_list.insert_at_tail(1).insert_at_tail(2).insert_at_tail(3).insert_at_tail(4)
+        supple_list = LinkedList()
+        intersection = sample_list.intersection(supple_list)
+        self.assertEqual(intersection.length(), 0)
+        self.assertFalse(intersection.search(1))
+        self.assertFalse(intersection.search(2))
+        self.assertFalse(intersection.search(3))
+        self.assertFalse(intersection.search(4))
+
+
+
 if __name__ == '__main__':
     unittest.main()
