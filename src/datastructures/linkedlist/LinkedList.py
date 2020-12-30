@@ -116,10 +116,10 @@ class LinkedList:
             return current
         return None
 
-    def remove_duplicates(lst):
+    def remove_duplicates(self):
         visited = []
-        if lst and lst.get_head():
-            current = lst.get_head()
+        if self.get_head():
+            current = self.get_head()
             previous = None
             while current:
                 if current.data not in visited:
@@ -130,5 +130,41 @@ class LinkedList:
                     previous.next_element = current.next_element
                     current = current.next_element
                 else:
-                    lst.head_node = current.next_element
-        return lst
+                    self.head_node = current.next_element
+        return self
+
+    def union(self, list2):
+        if self and self.get_head():
+            if list2 and list2.get_head():
+                current = self.get_head()
+                previous = current
+                while current:
+                    previous = current
+                    current = current.next_element
+                previous.next_element = list2.get_head()
+                self.remove_duplicates()
+                return self
+            else :
+                return self
+            return self
+        elif list2 and list2.get_head():
+            return list2
+        return LinkedList()
+
+    def intersection(self, list2):
+        length1 = 0
+        length2 = 0
+        if self and self.get_head():
+            length1 = self.length()
+        if list2 and list2.get_head():
+            length2 = list2.length()
+        if length1 == 0 or length2 == 0 :
+            return LinkedList()
+        intersection = LinkedList()
+        current = self.get_head()
+        while current:
+            if list2.search(current.data):
+                intersection.insert_at_tail(current.data)
+            current = current.next_element
+        return intersection
+

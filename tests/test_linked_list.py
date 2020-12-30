@@ -117,5 +117,49 @@ class TestlinkList(unittest.TestCase):
         self.assertEqual(sample_list.remove_duplicates().get_head(), Node(1))
 
 
+    def test_union(self):
+        sample_list = LinkedList()
+        sample_list.insert_at_tail(1).insert_at_tail(2).insert_at_tail(3).insert_at_tail(4)
+        supple_list = LinkedList()
+        supple_list.insert_at_tail(5).insert_at_tail(6).insert_at_tail(7).insert_at_tail(8)
+        union_list = sample_list.union(supple_list)
+        self.assertEqual(union_list.get_head(), Node(1))
+        self.assertTrue(union_list.search(1))
+        self.assertTrue(union_list.search(5))
+        self.assertTrue(union_list.search(6))
+        self.assertTrue(union_list.search(7))
+        self.assertTrue(union_list.search(8))
+
+
+    def test_union_duplicates(self):
+        sample_list = LinkedList()
+        sample_list.insert_at_tail(1).insert_at_tail(2).insert_at_tail(3).insert_at_tail(4)
+        supple_list = LinkedList()
+        supple_list.insert_at_tail(3).insert_at_tail(4).insert_at_tail(5).insert_at_tail(6)
+        union_list = sample_list.union(supple_list)
+        self.assertEqual(union_list.length(), 6)
+
+
+    def test_union_empty(self):
+        sample_list = LinkedList()
+        sample_list.insert_at_tail(1).insert_at_tail(2).insert_at_tail(3).insert_at_tail(4)
+        supple_list = LinkedList()
+        union_list = sample_list.union(supple_list)
+        self.assertEqual(union_list.length(), 4)
+        self.assertTrue(union_list.search(1))
+        self.assertTrue(union_list.search(2))
+        self.assertFalse(union_list.search(5))
+        self.assertFalse(union_list.search(6))
+        sample_list = LinkedList()
+        supple_list = LinkedList()
+        supple_list.insert_at_tail(5).insert_at_tail(6).insert_at_tail(7).insert_at_tail(8)
+        union_list = sample_list.union(supple_list)
+        self.assertEqual(union_list.length(), 4)
+        self.assertFalse(union_list.search(1))
+        self.assertFalse(union_list.search(2))
+        self.assertTrue(union_list.search(5))
+        self.assertTrue(union_list.search(6))
+
+
 if __name__ == '__main__':
     unittest.main()
