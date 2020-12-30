@@ -168,3 +168,15 @@ class LinkedList:
             current = current.next_element
         return intersection
 
+    def find_nth(self, n):
+        if self.get_head():
+            length = self.length()
+            current = self.get_head()
+            counter = 1
+            while current and counter !=  (length - n + 1):
+                counter = counter + 1
+                current = current.next_element
+            if not current:
+                return -1
+            return current.data
+        return -1

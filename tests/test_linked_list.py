@@ -208,6 +208,18 @@ class TestlinkList(unittest.TestCase):
         self.assertFalse(intersection.search(4))
 
 
+    def test_nth_node_from_end(self):
+        sample_list = LinkedList()
+        sample_list.insert_at_tail(1).insert_at_tail(2).insert_at_tail(3).insert_at_tail(4)
+        self.assertEqual(sample_list.length(), 4)
+        self.assertEqual(sample_list.find_nth(1), 4)
+        self.assertEqual(sample_list.find_nth(2), 3)
+        self.assertEqual(sample_list.find_nth(3), 2)
+        self.assertEqual(sample_list.find_nth(4), 1)
+        self.assertEqual(sample_list.find_nth(5), -1)
+        self.assertEqual(sample_list.find_nth(0), -1)
+
+
 
 if __name__ == '__main__':
     unittest.main()
