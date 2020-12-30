@@ -98,5 +98,24 @@ class TestlinkList(unittest.TestCase):
         self.assertEqual(sample_list.find_mid(), Node(2))
 
 
+    def test_mid_point2(self):
+        sample_list = LinkedList()
+        sample_list.insert_at_tail(1)
+        self.assertEqual(sample_list.find_mid(), Node(1))
+        sample_list.insert_at_tail(2)
+        self.assertEqual(sample_list.find_mid(), Node(1))
+        sample_list.insert_at_tail(3)
+        self.assertEqual(sample_list.find_mid(), Node(2))
+
+
+    def test_remove_duplicates(self):
+        sample_list = LinkedList()
+        self.assertEqual(sample_list.remove_duplicates().get_head(), None)
+        sample_list.insert_at_tail(1).insert_at_tail(2).insert_at_tail(3).insert_at_tail(4)
+        self.assertEqual(sample_list.remove_duplicates().get_head(), Node(1))
+        sample_list.insert_at_tail(1).insert_at_tail(2).insert_at_tail(3)
+        self.assertEqual(sample_list.remove_duplicates().get_head(), Node(1))
+
+
 if __name__ == '__main__':
     unittest.main()

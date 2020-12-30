@@ -115,3 +115,20 @@ class LinkedList:
                 current = current.next_element
             return current
         return None
+
+    def remove_duplicates(lst):
+        visited = []
+        if lst and lst.get_head():
+            current = lst.get_head()
+            previous = None
+            while current:
+                if current.data not in visited:
+                    visited.append(current.data)
+                    previous = current
+                    current = current.next_element
+                elif previous: # previous is not None
+                    previous.next_element = current.next_element
+                    current = current.next_element
+                else:
+                    lst.head_node = current.next_element
+        return lst
