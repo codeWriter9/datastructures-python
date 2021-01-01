@@ -33,10 +33,4 @@ class TestQueue(unittest.TestCase):
         self.assertEqual(queue.dequeue(), 1)
         self.assertEqual(queue.dequeue(), 2)
 
-    def test_reverseK(self):
-        queue = Queue()
-        for loop_counter in range(1, 11):
-            queue.enqueue(loop_counter)
-        self.assertEqual(queue.dequeue(), 1)
-        self.assertEqual(queue.dequeue(), 2)
 

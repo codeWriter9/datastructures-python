@@ -28,3 +28,4 @@ class Queue:
         front = self.front()
         self.queue_list.remove(self.front())
         return front
+
