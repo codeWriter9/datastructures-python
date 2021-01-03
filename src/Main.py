@@ -1,7 +1,11 @@
 from datastructures.linkedlist.LinkedList import LinkedList
-from datastructures.linkedlist.Node import Node
-from datastructures.stack.Stack import Stack
-from datastructures.queue.Queue import Queue
+from datastructures.linkedlist.Node       import Node
+from datastructures.stack.Stack           import Stack
+from datastructures.queue.Queue           import Queue
+
+from datastructures.tree.binaryTree.BinarySearchTree import BinarySearchTree
+from datastructures.tree.binaryTree.BinaryTreeNode   import BinaryTreeNode
+from datastructures.tree.binaryTree.BinaryTree       import BinaryTree
 
 
 class Main:
@@ -30,21 +34,7 @@ class Main:
 
 if __name__ == '__main__':
     main = Main()
-    queue = Queue()
-    for counter in range(1, 11):
-        queue.enqueue(counter)
-    anotherQueue = main.reverseK(queue, 5)
-    print([x for x in anotherQueue.queue_list ])
-    queue = Queue()
-    anotherQueue = main.reverseK(queue, 5)
-    print(anotherQueue)
-    for counter in range(1, 11):
-        queue.enqueue(counter)
-    anotherQueue = main.reverseK(queue, 22)
-    print(anotherQueue)
-    queue = Queue()
-    for counter in range(1, 11):
-        queue.enqueue(counter)
-    anotherQueue = main.reverseK(queue, -4)
-    print(anotherQueue)
+    bt = BinaryTree(BinaryTreeNode.with_data_and_children(2, BinaryTreeNode(1), BinaryTreeNode(3)))
+    bt.in_order(bt.root)
+
 
