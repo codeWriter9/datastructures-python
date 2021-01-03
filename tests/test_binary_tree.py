@@ -25,3 +25,4 @@ class TestBinaryTree(unittest.TestCase):
 
     def test_binary_search_tree(self):
         self.assertIsNotNone(BinarySearchTree(BinaryTreeNode.with_data_and_children(1, None, None)))
+        self.assertIsNotNone(BinarySearchTree.from_list(None))

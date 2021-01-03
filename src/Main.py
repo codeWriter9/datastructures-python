@@ -34,7 +34,5 @@ class Main:
 
 if __name__ == '__main__':
     main = Main()
-    bt = BinaryTree(BinaryTreeNode.with_data_and_children(2, BinaryTreeNode(1), BinaryTreeNode(3)))
-    bt.in_order(bt.root)
-
+    BinarySearchTree.from_list([2, 1, 3]).in_order()
 
