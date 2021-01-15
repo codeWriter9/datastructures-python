@@ -31,3 +31,26 @@ class BinarySearchTree(BinaryTree):
 
     def in_order(self):
         return super()._in_order(super()._root())
+
+    def bst_root(self):
+        return super()._root()
+
+    def is_balanced(self, current=None):
+        if self.root is None:
+            return True
+        else :
+            left_height = self._height(self.root.left)
+            right_height = self._height(self.root.right)
+            if (abs(left_height - right_height) <= 1) and self._is_balanced( self.root.left) is True and self._is_balanced( self.root.right) is True: 
+                return True
+            return False
+
+    def _is_balanced(self, current):
+        if current is None:
+            return True
+        else :
+            left_height = self._height(current.left)
+            right_height = self._height(current.right)
+            if (abs(left_height - right_height) <= 1) and self._is_balanced( current.left ) is True and self._is_balanced( current.right ) is True: 
+                return True
+            return False

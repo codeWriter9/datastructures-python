@@ -26,3 +26,19 @@ class TestBinaryTree(unittest.TestCase):
     def test_binary_search_tree(self):
         self.assertIsNotNone(BinarySearchTree(BinaryTreeNode.with_data_and_children(1, None, None)))
         self.assertIsNotNone(BinarySearchTree.from_list(None))
+
+    def test_binary_search_tree_balanced(self):
+        bt = BinarySearchTree(None)
+        self.assertIsNotNone(bt)
+        self.assertTrue(bt.is_balanced())
+        bt = BinarySearchTree(BinaryTreeNode.with_data_and_children(1, None, None))
+        self.assertIsNotNone(bt)
+        self.assertTrue(bt.is_balanced())
+        bt = BinarySearchTree(BinaryTreeNode.with_data_and_children(2, BinaryTreeNode(1), BinaryTreeNode(3)))
+        self.assertIsNotNone(bt)
+        self.assertTrue(bt.is_balanced())
+
+    def test_binary_search_tree_unbalanced(self):
+        bt = BinarySearchTree(BinaryTreeNode.with_data_and_children(3, BinaryTreeNode.with_data_and_children(2, BinaryTreeNode(1), BinaryTreeNode(0)), None))
+        self.assertIsNotNone(bt)
+        self.assertFalse(bt.is_balanced())

@@ -22,3 +22,9 @@ class Stack:
         if self.is_empty():
             return None
         return self.stack_list.pop()
+
+    def __repr__(self): 
+        if self.stack_list:
+            return 'Stack: {}'.format(str(self.stack_list))
+        else :
+            return 'Stack'

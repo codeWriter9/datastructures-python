@@ -9,9 +9,9 @@ class BinaryTree:
     def from_array(cls, array) -> 'BinaryTree':
         return cls(data)
 
-    def __repr__(self): 
+    def __repr__(self):
         if self.root:
-            return 'Node: {}'.format(self.data.string)
+            return 'Node: {}'.format(str(self.root.data))
         else :
             return 'None'
 
@@ -27,6 +27,15 @@ class BinaryTree:
                 return 1
             else :
                 return 1 + max(self._max_depth(self.root.left), self._max_depth(self.root.right))
+        else :
+            return 0
+
+    def _height(self, current):
+        if current:
+            if current.left is None and current.right is None:
+                return 1
+            else :
+                return 1 + max(self._max_depth(current.left), self._max_depth(current.right))
         else :
             return 0
 
