@@ -26,10 +26,28 @@ class Main:
             result += str(ptr.data) + " "
         return result
 
+    def rotate_right(self, root):
+        pivot = root.left
+        root.left = pivot.right
+        pivot.right = root
+        return pivot
+
+    def rotate_left(self, root):
+        pivot = root.right
+        root.right = pivot.left
+        pivot.left = root
+        return pivot
+
 
 if __name__ == '__main__':
     main = Main()
-    bt = BinarySearchTree.from_list([100,50,200,25,125,350])
+    two = BinaryTreeNode(2)
+    four = BinaryTreeNode(4)
+    seven = BinaryTreeNode(7)
+    three = BinaryTreeNode.with_data_and_children(3, two, four)
+    bt = BinarySearchTree(BinaryTreeNode.with_data_and_children(5, three, seven))
     print(main.inorder_using_iterator(bt.bst_root()))
-    #print(main.inorder_using_iterator(bt2.bst_root()))
-
+    pivot = main.rotate_right(bt.bst_root())
+    print(main.inorder_using_iterator(pivot))
+    pivot = main.rotate_left(pivot)
+    print(main.inorder_using_iterator(pivot))
