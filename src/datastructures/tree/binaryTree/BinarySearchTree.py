@@ -41,7 +41,7 @@ class BinarySearchTree(BinaryTree):
         else :
             left_height = self._height(self.root.left)
             right_height = self._height(self.root.right)
-            if (abs(left_height - right_height) <= 1) and self._is_balanced( self.root.left) is True and self._is_balanced( self.root.right) is True: 
+            if (abs(left_height - right_height) <= 1) and self._is_balanced( self.root.left) and self._is_balanced( self.root.right): 
                 return True
             return False
 
@@ -51,6 +51,6 @@ class BinarySearchTree(BinaryTree):
         else :
             left_height = self._height(current.left)
             right_height = self._height(current.right)
-            if (abs(left_height - right_height) <= 1) and self._is_balanced( current.left ) is True and self._is_balanced( current.right ) is True: 
+            if (abs(left_height - right_height) <= 1) and self._is_balanced( current.left ) and self._is_balanced( current.right ): 
                 return True
             return False
