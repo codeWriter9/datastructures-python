@@ -7,6 +7,21 @@ class AVLTree(BinarySearchTree):
     def __init__(self, root:BinaryTreeNode):
          super().__init__(root)
 
+    def insert(self, current, node):
+        if current:
+            if  node.data > current.data and current.right is None:
+                current.right = node
+            elif  node.data <= current.data and current.left is None:
+                current.left = node
+            elif node.data > current.data:
+                self.insert(current.right, node)
+            else :
+                self.insert(current.left, node)
+            print("node=" + str(current))
+        else :
+            pass
+
+
     def balance_factor(self, current=None):
         if self.root is None:
             return 0

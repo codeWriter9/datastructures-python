@@ -54,3 +54,30 @@ class BinarySearchTree(BinaryTree):
             if (abs(left_height - right_height) <= 1) and self._is_balanced( current.left ) and self._is_balanced( current.right ): 
                 return True
             return False
+
+    def inorder_successor(self, value):
+        if self.root == None:
+            return None
+        else :
+            successor = None
+            current = self.root
+            while current != None:
+                if current.data < value:
+                    current = current.right
+                elif current.data > value:
+                    successor = current
+                    current = current.left
+                else:
+                    if current.right != None:
+                        successor = find_min(current.right)
+                    break
+        return successor
+
+    def find_min(self, current):
+        if self.root == None:
+            return None
+  
+        while current.left != None:
+            current = current.left
+
+        return current

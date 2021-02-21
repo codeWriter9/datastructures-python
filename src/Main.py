@@ -3,6 +3,7 @@ from datastructures.linkedlist.Node       import Node
 from datastructures.stack.Stack           import Stack
 from datastructures.queue.Queue           import Queue
 
+from datastructures.tree.binaryTree.AVLTree             import AVLTree
 from datastructures.tree.binaryTree.BinarySearchTree    import BinarySearchTree
 from datastructures.tree.binaryTree.BinaryTreeNode      import BinaryTreeNode
 from datastructures.tree.binaryTree.BinaryTree          import BinaryTree
@@ -41,13 +42,7 @@ class Main:
 
 if __name__ == '__main__':
     main = Main()
-    two = BinaryTreeNode(2)
-    four = BinaryTreeNode(4)
-    seven = BinaryTreeNode(7)
-    three = BinaryTreeNode.with_data_and_children(3, two, four)
-    bt = BinarySearchTree(BinaryTreeNode.with_data_and_children(5, three, seven))
-    print(main.inorder_using_iterator(bt.bst_root()))
-    pivot = main.rotate_right(bt.bst_root())
-    print(main.inorder_using_iterator(pivot))
-    pivot = main.rotate_left(pivot)
-    print(main.inorder_using_iterator(pivot))
+    avl = AVLTree(BinaryTreeNode(1))
+    for node in range(2, 11, 1):
+        avl.insert(avl.bst_root(), BinaryTreeNode(node))
+    print(avl.in_order())
