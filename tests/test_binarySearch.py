@@ -13,6 +13,5 @@ class TestStack(unittest.TestCase):
         self.assertIsNotNone(BinarySearch())
 
     def test_array_BinarySearch(self):
-        binarySearch = BinarySearch()
-        self.assertEqual(2, binarySearch.search([1, 2, 3, 4, 5, 6, 7, 8, 9], 3))
-        self.assertEqual(-1, binarySearch.search([-1, 0, 3, 5, 9, 12], 2))
+        self.assertEqual(2, BinarySearch.search([1, 2, 3, 4, 5, 6, 7, 8, 9], 3))
+        self.assertEqual(-1, BinarySearch.search([-1, 0, 3, 5, 9, 12], 2))
