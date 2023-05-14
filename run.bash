@@ -1,3 +1,4 @@
 #!/usr/bin/env bash
-
-python -m pytest
+source ./venv/bin/activate
+python3 -m pytest
+deactivate
